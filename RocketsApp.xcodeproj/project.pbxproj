@@ -16,6 +16,12 @@
 		431482CA28621E9000C4A660 /* RocketsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482C928621E9000C4A660 /* RocketsAppTests.swift */; };
 		431482D428621E9000C4A660 /* RocketsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482D328621E9000C4A660 /* RocketsAppUITests.swift */; };
 		431482D628621E9000C4A660 /* RocketsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482D528621E9000C4A660 /* RocketsAppUITestsLaunchTests.swift */; };
+		431482E528621EC400C4A660 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482E428621EC400C4A660 /* Service.swift */; };
+		431482E728621ED000C4A660 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482E628621ED000C4A660 /* Constants.swift */; };
+		431482F428626AFA00C4A660 /* URL+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F328626AFA00C4A660 /* URL+Endpoints.swift */; };
+		431482F62862700800C4A660 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F52862700800C4A660 /* Rocket.swift */; };
+		431482F8286270C200C4A660 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F7286270C200C4A660 /* Launch.swift */; };
+		78592A588D2468C71BD1A461 /* Pods_RocketsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0C3409A56024E5BF155B1A /* Pods_RocketsApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		431482AF28621E8F00C4A660 /* RocketsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		431482B228621E8F00C4A660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		431482B428621E8F00C4A660 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		431482B628621E8F00C4A660 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,11 +49,20 @@
 		431482BB28621E9000C4A660 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		431482BE28621E9000C4A660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		431482C028621E9000C4A660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		431482C528621E9000C4A660 /* RocketsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		431482C928621E9000C4A660 /* RocketsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsAppTests.swift; sourceTree = "<group>"; };
-		431482CF28621E9000C4A660 /* RocketsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		431482D328621E9000C4A660 /* RocketsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsAppUITests.swift; sourceTree = "<group>"; };
 		431482D528621E9000C4A660 /* RocketsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		431482E428621EC400C4A660 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		431482E628621ED000C4A660 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		431482EE28622F7100C4A660 /* RocketsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = RocketsAppTests.xctest; path = "/Users/kirillprivalov/Desktop/RocketsApp/build/Debug-iphoneos/RocketsAppTests.xctest"; sourceTree = "<absolute>"; };
+		431482EF28622F7100C4A660 /* RocketsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = RocketsAppUITests.xctest; path = "/Users/kirillprivalov/Desktop/RocketsApp/build/Debug-iphoneos/RocketsAppUITests.xctest"; sourceTree = "<absolute>"; };
+		431482F128623D1800C4A660 /* RocketsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		431482F328626AFA00C4A660 /* URL+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Endpoints.swift"; sourceTree = "<group>"; };
+		431482F52862700800C4A660 /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
+		431482F7286270C200C4A660 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		8F0C3409A56024E5BF155B1A /* Pods_RocketsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RocketsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBB5A38601361B7F9FA0CB7D /* Pods-RocketsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketsApp.release.xcconfig"; path = "Target Support Files/Pods-RocketsApp/Pods-RocketsApp.release.xcconfig"; sourceTree = "<group>"; };
+		D9440333F10C27621B3BEF67 /* Pods-RocketsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketsApp.debug.xcconfig"; path = "Target Support Files/Pods-RocketsApp/Pods-RocketsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78592A588D2468C71BD1A461 /* Pods_RocketsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,29 +91,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05EFE1D6B25FC7B1405F8840 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F0C3409A56024E5BF155B1A /* Pods_RocketsApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		431482A628621E8F00C4A660 = {
 			isa = PBXGroup;
 			children = (
 				431482B128621E8F00C4A660 /* RocketsApp */,
 				431482C828621E9000C4A660 /* RocketsAppTests */,
 				431482D228621E9000C4A660 /* RocketsAppUITests */,
-				431482B028621E8F00C4A660 /* Products */,
+				4C7CEC7119C483E1A33A3A85 /* Pods */,
+				05EFE1D6B25FC7B1405F8840 /* Frameworks */,
+				431482F128623D1800C4A660 /* RocketsApp.app */,
 			);
-			sourceTree = "<group>";
-		};
-		431482B028621E8F00C4A660 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				431482AF28621E8F00C4A660 /* RocketsApp.app */,
-				431482C528621E9000C4A660 /* RocketsAppTests.xctest */,
-				431482CF28621E9000C4A660 /* RocketsAppUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		431482B128621E8F00C4A660 /* RocketsApp */ = {
 			isa = PBXGroup;
 			children = (
+				431482E228621EAD00C4A660 /* Network */,
 				431482B228621E8F00C4A660 /* AppDelegate.swift */,
 				431482B428621E8F00C4A660 /* SceneDelegate.swift */,
 				431482B628621E8F00C4A660 /* ViewController.swift */,
@@ -127,6 +143,43 @@
 			path = RocketsAppUITests;
 			sourceTree = "<group>";
 		};
+		431482E228621EAD00C4A660 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				431482F228626AD800C4A660 /* Extensions */,
+				431482E82862205D00C4A660 /* Models */,
+				431482E428621EC400C4A660 /* Service.swift */,
+				431482E628621ED000C4A660 /* Constants.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		431482E82862205D00C4A660 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				431482F52862700800C4A660 /* Rocket.swift */,
+				431482F7286270C200C4A660 /* Launch.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		431482F228626AD800C4A660 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				431482F328626AFA00C4A660 /* URL+Endpoints.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C7CEC7119C483E1A33A3A85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9440333F10C27621B3BEF67 /* Pods-RocketsApp.debug.xcconfig */,
+				CBB5A38601361B7F9FA0CB7D /* Pods-RocketsApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 431482D928621E9000C4A660 /* Build configuration list for PBXNativeTarget "RocketsApp" */;
 			buildPhases = (
+				DD91EDABA418735F88C40277 /* [CP] Check Pods Manifest.lock */,
 				431482AB28621E8F00C4A660 /* Sources */,
 				431482AC28621E8F00C4A660 /* Frameworks */,
 				431482AD28621E8F00C4A660 /* Resources */,
+				A37B0363B78702A35E5A6D3A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,7 +199,7 @@
 			);
 			name = RocketsApp;
 			productName = RocketsApp;
-			productReference = 431482AF28621E8F00C4A660 /* RocketsApp.app */;
+			productReference = 431482F128623D1800C4A660 /* RocketsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		431482C428621E9000C4A660 /* RocketsAppTests */ = {
@@ -162,7 +217,7 @@
 			);
 			name = RocketsAppTests;
 			productName = RocketsAppTests;
-			productReference = 431482C528621E9000C4A660 /* RocketsAppTests.xctest */;
+			productReference = 431482EE28622F7100C4A660 /* RocketsAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		431482CE28621E9000C4A660 /* RocketsAppUITests */ = {
@@ -180,7 +235,7 @@
 			);
 			name = RocketsAppUITests;
 			productName = RocketsAppUITests;
-			productReference = 431482CF28621E9000C4A660 /* RocketsAppUITests.xctest */;
+			productReference = 431482EF28622F7100C4A660 /* RocketsAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -215,7 +270,7 @@
 				Base,
 			);
 			mainGroup = 431482A628621E8F00C4A660;
-			productRefGroup = 431482B028621E8F00C4A660 /* Products */;
+			productRefGroup = 431482A628621E8F00C4A660;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -253,13 +308,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A37B0363B78702A35E5A6D3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RocketsApp/Pods-RocketsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RocketsApp/Pods-RocketsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RocketsApp/Pods-RocketsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD91EDABA418735F88C40277 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RocketsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		431482AB28621E8F00C4A660 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				431482F62862700800C4A660 /* Rocket.swift in Sources */,
+				431482E728621ED000C4A660 /* Constants.swift in Sources */,
+				431482F8286270C200C4A660 /* Launch.swift in Sources */,
 				431482B728621E8F00C4A660 /* ViewController.swift in Sources */,
+				431482E528621EC400C4A660 /* Service.swift in Sources */,
 				431482B328621E8F00C4A660 /* AppDelegate.swift in Sources */,
+				431482F428626AFA00C4A660 /* URL+Endpoints.swift in Sources */,
 				431482B528621E8F00C4A660 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +534,7 @@
 		};
 		431482DA28621E9000C4A660 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9440333F10C27621B3BEF67 /* Pods-RocketsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -454,12 +557,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		431482DB28621E9000C4A660 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBB5A38601361B7F9FA0CB7D /* Pods-RocketsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -482,7 +586,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
