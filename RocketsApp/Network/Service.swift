@@ -17,7 +17,7 @@ final class Network {
         encoder.keyEncodingStrategy = .convertToSnakeCase
     }
 
-    func sendRequest(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
+    private func sendRequest<T: Decodable>(url: URL, model: T.Type, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -28,31 +28,31 @@ final class Network {
         }
         task.resume()
     }
+    
+    private func parseResponse<T: Decodable>(result: Result<Data, Error>, model: T.Type, completion: @escaping (T) -> Void) {
+        switch result {
+        case .success(let data):
+            let JSON = try? decoder.decode(model.self, from: data)
+            guard let JSON = JSON else { return }
+            completion(JSON)
+        case .failure(let error):
+            print(error)
+            return
+        }
+    }
         
-    func fetchRockets(_ endpoint: URL = URL.rocketsEndpoint, completion: @escaping (Rockets) -> Void) {
-        sendRequest(url: URL.rocketsEndpoint) { [decoder] (result) in
-            switch result {
-            case .success(let data):
-                if let rockets = try? decoder.decode(Rockets.self, from: data) {
-                    completion(rockets)
-                }
-            case .failure(let error):
-                print(error)
-                completion([])
+    func fetchRockets(completion: @escaping (Rockets) -> Void) {
+        sendRequest(url: URL.rocketsEndpoint, model: Rockets.self) { result in
+            self.parseResponse(result: result, model: Rockets.self) { response in
+                completion(response)
             }
         }
     }
     
-    func fetchLaunches(_ endpoint: URL = URL.launchesEndpoint, completion: @escaping ((Launches)?) -> Void) {
-        sendRequest(url: URL.launchesEndpoint) { [decoder] (result) in
-            switch result {
-            case .success(let data):
-                if let launches = try? decoder.decode(Launches.self, from: data) {
-                    completion(launches)
-                }
-            case .failure(let error):
-                print(error)
-                completion([])
+    func fetchLaunches(completion: @escaping (Launches) -> Void) {
+        sendRequest(url: URL.launchesEndpoint, model: Launches.self) { result in
+            self.parseResponse(result: result, model: Launches.self) { response in
+                completion(response)
             }
         }
     }
