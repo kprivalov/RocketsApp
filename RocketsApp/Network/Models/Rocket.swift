@@ -18,89 +18,101 @@ struct Rocket: Decodable {
     let flickrImages: [String]
     let name, type: String
     let active: Bool
-    let stages, boosters, costPerLaunch, successRatePct: Int
-    let firstFlight, country, company: String
+    let stages: Int
+    let boosters: Int
+    let costPerLaunch: Int
+    let successRatePct: Int
+    let firstFlight: String
+    let country: String
+    let company: String
     let wikipedia: String
     let description, id: String
 }
 
-// MARK: - Diameter
-struct Diameter: Decodable {
-    let meters, feet: Double?
-}
-
-// MARK: - Engines
-struct Engines: Decodable {
-    let isp: ISP
-    let thrustSeaLevel, thrustVacuum: Thrust
-    let number: Int
-    let type, version: String
-    let layout: String?
-    let engineLossMax: Int?
-    let propellant1, propellant2: String
-    let thrustToWeight: Double
-}
-
-// MARK: - ISP
-struct ISP: Decodable {
-    let seaLevel, vacuum: Int
-
-    enum CodingKeys: String, CodingKey {
-        case seaLevel
-        case vacuum
+extension Rocket {
+    // MARK: - Diameter
+    struct Diameter: Decodable {
+        let meters: Double?
+        let feet: Double?
     }
-}
 
-// MARK: - Thrust
-struct Thrust: Decodable {
-    let kN, lbf: Int
-}
+    // MARK: - Engines
+    struct Engines: Decodable {
+        let isp: ISP
+        let thrustSeaLevel: Thrust
+        let thrustVacuum: Thrust
+        let number: Int
+        let type, version: String
+        let layout: String?
+        let engineLossMax: Int?
+        let propellant1: String
+        let propellant2: String
+        let thrustToWeight: Double
+    }
 
-// MARK: - FirstStage
-struct FirstStage: Decodable {
-    let thrustSeaLevel, thrustVacuum: Thrust
-    let reusable: Bool
-    let engines: Int
-    let fuelAmountTons: Double
-    let burnTimeSEC: Int?
-}
+    // MARK: - ISP
+    struct ISP: Decodable {
+        let seaLevel: Int
+        let vacuum: Int
+    }
 
-// MARK: - LandingLegs
-struct LandingLegs: Decodable {
-    let number: Int
-    let material: String?
-}
+    // MARK: - Thrust
+    struct Thrust: Decodable {
+        let kN: Int
+        let lbf: Int
+    }
 
-// MARK: - Mass
-struct Mass: Decodable {
-    let kg, lb: Int
-}
+    // MARK: - FirstStage
+    struct FirstStage: Decodable {
+        let thrustSeaLevel: Thrust
+        let thrustVacuum: Thrust
+        let reusable: Bool
+        let engines: Int
+        let fuelAmountTons: Double
+        let burnTimeSEC: Int?
+    }
 
-// MARK: - PayloadWeight
-struct PayloadWeight: Decodable {
-    let id, name: String
-    let kg, lb: Int
-}
+    // MARK: - LandingLegs
+    struct LandingLegs: Decodable {
+        let number: Int
+        let material: String?
+    }
 
-// MARK: - SecondStage
-struct SecondStage: Decodable {
-    let thrust: Thrust
-    let payloads: Payloads
-    let reusable: Bool
-    let engines: Int
-    let fuelAmountTons: Double
-    let burnTimeSEC: Int?
-}
+    // MARK: - Mass
+    struct Mass: Decodable {
+        let kg: Int
+        let lb: Int
+    }
 
-// MARK: - Payloads
-struct Payloads: Decodable {
-    let compositeFairing: CompositeFairing
-    let option1: String
-}
+    // MARK: - PayloadWeight
+    struct PayloadWeight: Decodable {
+        let id: String
+        let name: String
+        let kg: Int
+        let lb: Int
+    }
 
-// MARK: - CompositeFairing
-struct CompositeFairing: Decodable {
-    let height, diameter: Diameter
+    // MARK: - SecondStage
+    struct SecondStage: Decodable {
+        let thrust: Thrust
+        let payloads: Payloads
+        let reusable: Bool
+        let engines: Int
+        let fuelAmountTons: Double
+        let burnTimeSEC: Int?
+    }
+
+    // MARK: - Payloads
+    struct Payloads: Decodable {
+        let compositeFairing: CompositeFairing
+        let option1: String
+    }
+
+    // MARK: - CompositeFairing
+    struct CompositeFairing: Decodable {
+        let height: Diameter
+        let diameter: Diameter
+    }
 }
 
 typealias Rockets = [Rocket]

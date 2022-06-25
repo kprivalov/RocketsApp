@@ -9,13 +9,11 @@ import Foundation
 
 final class Network {
     static let shared = Network()
-    let decoder: JSONDecoder
-    let encoder: JSONEncoder
+    lazy var decoder = JSONDecoder()
+    lazy var encoder = JSONEncoder()
 
     init() {
-        decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
     }
 
@@ -29,7 +27,6 @@ final class Network {
             }
         }
         task.resume()
-        task.suspend()
     }
         
     func fetchRockets(_ endpoint: URL = URL.rocketsEndpoint, completion: @escaping (Rockets) -> Void) {
