@@ -17,7 +17,7 @@ final class Network {
         encoder.keyEncodingStrategy = .convertToSnakeCase
     }
 
-    private func sendRequest<T: Decodable>(url: URL, model: T.Type, completion: @escaping (Result<Data, Error>) -> Void) {
+    private func sendRequest(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -42,7 +42,7 @@ final class Network {
     }
         
     func fetchRockets(completion: @escaping (Rockets) -> Void) {
-        sendRequest(url: URL.rocketsEndpoint, model: Rockets.self) { result in
+        sendRequest(url: URL.rocketsEndpoint) { result in
             self.parseResponse(result: result, model: Rockets.self) { response in
                 completion(response)
             }
@@ -50,7 +50,7 @@ final class Network {
     }
     
     func fetchLaunches(completion: @escaping (Launches) -> Void) {
-        sendRequest(url: URL.launchesEndpoint, model: Launches.self) { result in
+        sendRequest(url: URL.launchesEndpoint) { result in
             self.parseResponse(result: result, model: Launches.self) { response in
                 completion(response)
             }
