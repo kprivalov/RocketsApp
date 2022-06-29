@@ -21,7 +21,6 @@
 		431482F428626AFA00C4A660 /* URL+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F328626AFA00C4A660 /* URL+Endpoints.swift */; };
 		431482F62862700800C4A660 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F52862700800C4A660 /* Rocket.swift */; };
 		431482F8286270C200C4A660 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F7286270C200C4A660 /* Launch.swift */; };
-		431482FA286CCAAD00C4A660 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F9286CCAAD00C4A660 /* URL.swift */; };
 		78592A588D2468C71BD1A461 /* Pods_RocketsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0C3409A56024E5BF155B1A /* Pods_RocketsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,13 +54,12 @@
 		431482D528621E9000C4A660 /* RocketsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		431482E428621EC400C4A660 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		431482E628621ED000C4A660 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		431482EE28622F7100C4A660 /* RocketsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = RocketsAppTests.xctest; path = "/Users/kirillprivalov/Desktop/RocketsApp/build/Debug-iphoneos/RocketsAppTests.xctest"; sourceTree = "<absolute>"; };
-		431482EF28622F7100C4A660 /* RocketsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = RocketsAppUITests.xctest; path = "/Users/kirillprivalov/Desktop/RocketsApp/build/Debug-iphoneos/RocketsAppUITests.xctest"; sourceTree = "<absolute>"; };
 		431482F128623D1800C4A660 /* RocketsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		431482F328626AFA00C4A660 /* URL+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Endpoints.swift"; sourceTree = "<group>"; };
 		431482F52862700800C4A660 /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		431482F7286270C200C4A660 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
-		431482F9286CCAAD00C4A660 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		431482FF286CCCB900C4A660 /* RocketsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43148300286CCCB900C4A660 /* RocketsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F0C3409A56024E5BF155B1A /* Pods_RocketsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RocketsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB5A38601361B7F9FA0CB7D /* Pods-RocketsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketsApp.release.xcconfig"; path = "Target Support Files/Pods-RocketsApp/Pods-RocketsApp.release.xcconfig"; sourceTree = "<group>"; };
 		D9440333F10C27621B3BEF67 /* Pods-RocketsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketsApp.debug.xcconfig"; path = "Target Support Files/Pods-RocketsApp/Pods-RocketsApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +108,8 @@
 				4C7CEC7119C483E1A33A3A85 /* Pods */,
 				05EFE1D6B25FC7B1405F8840 /* Frameworks */,
 				431482F128623D1800C4A660 /* RocketsApp.app */,
+				431482FF286CCCB900C4A660 /* RocketsAppTests.xctest */,
+				43148300286CCCB900C4A660 /* RocketsAppUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,7 +152,6 @@
 				431482E82862205D00C4A660 /* Models */,
 				431482E428621EC400C4A660 /* Service.swift */,
 				431482E628621ED000C4A660 /* Constants.swift */,
-				431482F9286CCAAD00C4A660 /* URL.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -220,7 +219,7 @@
 			);
 			name = RocketsAppTests;
 			productName = RocketsAppTests;
-			productReference = 431482EE28622F7100C4A660 /* RocketsAppTests.xctest */;
+			productReference = 431482FF286CCCB900C4A660 /* RocketsAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		431482CE28621E9000C4A660 /* RocketsAppUITests */ = {
@@ -238,7 +237,7 @@
 			);
 			name = RocketsAppUITests;
 			productName = RocketsAppUITests;
-			productReference = 431482EF28622F7100C4A660 /* RocketsAppUITests.xctest */;
+			productReference = 43148300286CCCB900C4A660 /* RocketsAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -360,7 +359,6 @@
 			files = (
 				431482F62862700800C4A660 /* Rocket.swift in Sources */,
 				431482E728621ED000C4A660 /* Constants.swift in Sources */,
-				431482FA286CCAAD00C4A660 /* URL.swift in Sources */,
 				431482F8286270C200C4A660 /* Launch.swift in Sources */,
 				431482B728621E8F00C4A660 /* ViewController.swift in Sources */,
 				431482E528621EC400C4A660 /* Service.swift in Sources */,
