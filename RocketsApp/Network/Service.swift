@@ -6,15 +6,17 @@
 //
 
 import Foundation
+import os
 
 final class Network {
     static let shared = Network()
-    lazy var decoder = JSONDecoder()
-    lazy var encoder = JSONEncoder()
+    private static let decoder = JSONDecoder()
+    private static let encoder = JSONEncoder()
+    private static let logger = Logger()
 
     init() {
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        encoder.keyEncodingStrategy = .convertToSnakeCase
+        Network.decoder.keyDecodingStrategy = .convertFromSnakeCase
+        Network.encoder.keyEncodingStrategy = .convertToSnakeCase
     }
 
     private func sendRequest(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
@@ -28,15 +30,15 @@ final class Network {
         }
         task.resume()
     }
-    
+
     private func parseResponse<T: Decodable>(result: Result<Data, Error>, model: T.Type, completion: @escaping (T) -> Void) {
         switch result {
         case .success(let data):
-            let JSON = try? decoder.decode(model.self, from: data)
-            guard let JSON = JSON else { return }
-            completion(JSON)
+            let json = try? Network.decoder.decode(model.self, from: data)
+            guard let json = json else { return }
+            completion(json)
         case .failure(let error):
-            print(error)
+            Network.logger.info(#"An error occured: \#(error.localizedDescription)"#)
             return
         }
     }
@@ -48,7 +50,7 @@ final class Network {
             }
         }
     }
-    
+
     func fetchLaunches(completion: @escaping (Launches) -> Void) {
         sendRequest(url: URL.launchesEndpoint) { result in
             self.parseResponse(result: result, model: Launches.self) { response in
