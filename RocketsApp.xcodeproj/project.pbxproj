@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		431482B328621E8F00C4A660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482B228621E8F00C4A660 /* AppDelegate.swift */; };
 		431482B528621E8F00C4A660 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482B428621E8F00C4A660 /* SceneDelegate.swift */; };
-		431482B728621E8F00C4A660 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482B628621E8F00C4A660 /* ViewController.swift */; };
-		431482BA28621E8F00C4A660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431482B828621E8F00C4A660 /* Main.storyboard */; };
 		431482BC28621E9000C4A660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 431482BB28621E9000C4A660 /* Assets.xcassets */; };
 		431482BF28621E9000C4A660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431482BD28621E9000C4A660 /* LaunchScreen.storyboard */; };
 		431482CA28621E9000C4A660 /* RocketsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482C928621E9000C4A660 /* RocketsAppTests.swift */; };
@@ -21,6 +19,8 @@
 		431482F428626AFA00C4A660 /* URL+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F328626AFA00C4A660 /* URL+Endpoints.swift */; };
 		431482F62862700800C4A660 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F52862700800C4A660 /* Rocket.swift */; };
 		431482F8286270C200C4A660 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431482F7286270C200C4A660 /* Launch.swift */; };
+		4343A3B1286CF6F60069B53C /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343A3B0286CF6F60069B53C /* UINavigationController.swift */; };
+		4343A3B3286CF96D0069B53C /* RocketScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343A3B2286CF96D0069B53C /* RocketScreenViewController.swift */; };
 		78592A588D2468C71BD1A461 /* Pods_RocketsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0C3409A56024E5BF155B1A /* Pods_RocketsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +44,6 @@
 /* Begin PBXFileReference section */
 		431482B228621E8F00C4A660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		431482B428621E8F00C4A660 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		431482B628621E8F00C4A660 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		431482B928621E8F00C4A660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		431482BB28621E9000C4A660 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		431482BE28621E9000C4A660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		431482C028621E9000C4A660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +58,8 @@
 		431482F7286270C200C4A660 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		431482FF286CCCB900C4A660 /* RocketsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43148300286CCCB900C4A660 /* RocketsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4343A3B0286CF6F60069B53C /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		4343A3B2286CF96D0069B53C /* RocketScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketScreenViewController.swift; sourceTree = "<group>"; };
 		8F0C3409A56024E5BF155B1A /* Pods_RocketsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RocketsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB5A38601361B7F9FA0CB7D /* Pods-RocketsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketsApp.release.xcconfig"; path = "Target Support Files/Pods-RocketsApp/Pods-RocketsApp.release.xcconfig"; sourceTree = "<group>"; };
 		D9440333F10C27621B3BEF67 /* Pods-RocketsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketsApp.debug.xcconfig"; path = "Target Support Files/Pods-RocketsApp/Pods-RocketsApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,11 +119,11 @@
 				431482E228621EAD00C4A660 /* Network */,
 				431482B228621E8F00C4A660 /* AppDelegate.swift */,
 				431482B428621E8F00C4A660 /* SceneDelegate.swift */,
-				431482B628621E8F00C4A660 /* ViewController.swift */,
-				431482B828621E8F00C4A660 /* Main.storyboard */,
 				431482BB28621E9000C4A660 /* Assets.xcassets */,
 				431482BD28621E9000C4A660 /* LaunchScreen.storyboard */,
 				431482C028621E9000C4A660 /* Info.plist */,
+				4343A3B0286CF6F60069B53C /* UINavigationController.swift */,
+				4343A3B2286CF96D0069B53C /* RocketScreenViewController.swift */,
 			);
 			path = RocketsApp;
 			sourceTree = "<group>";
@@ -290,7 +290,6 @@
 			files = (
 				431482BF28621E9000C4A660 /* LaunchScreen.storyboard in Resources */,
 				431482BC28621E9000C4A660 /* Assets.xcassets in Resources */,
-				431482BA28621E8F00C4A660 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,10 +358,11 @@
 			files = (
 				431482F62862700800C4A660 /* Rocket.swift in Sources */,
 				431482E728621ED000C4A660 /* Constants.swift in Sources */,
+				4343A3B3286CF96D0069B53C /* RocketScreenViewController.swift in Sources */,
 				431482F8286270C200C4A660 /* Launch.swift in Sources */,
-				431482B728621E8F00C4A660 /* ViewController.swift in Sources */,
 				431482E528621EC400C4A660 /* Service.swift in Sources */,
 				431482B328621E8F00C4A660 /* AppDelegate.swift in Sources */,
+				4343A3B1286CF6F60069B53C /* UINavigationController.swift in Sources */,
 				431482F428626AFA00C4A660 /* URL+Endpoints.swift in Sources */,
 				431482B528621E8F00C4A660 /* SceneDelegate.swift in Sources */,
 			);
@@ -401,14 +401,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		431482B828621E8F00C4A660 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				431482B928621E8F00C4A660 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		431482BD28621E9000C4A660 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -547,9 +539,8 @@
 				INFOPLIST_FILE = RocketsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,9 +567,8 @@
 				INFOPLIST_FILE = RocketsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
