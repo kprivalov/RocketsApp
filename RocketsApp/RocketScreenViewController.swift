@@ -11,9 +11,36 @@ import UIKit
 // MARK: - ViewControllers
 
 class FirstViewController: UIViewController {
+    lazy var settingsButton = UIButton()
+    
+    private func goToSettingsScreen() {
+        let settings = SettingsTableView()
+        let nav = NavigationController(rootViewController: settings)
+        nav.modalPresentationStyle = .automatic
+        present(nav, animated: true)
+    }
+    
+    func customizeSettingsButton() {
+        settingsButton.addAction(UIAction(title: "Click Me", handler: { [weak self] _ in
+            self?.goToSettingsScreen()
+        }), for: .allEvents)
+        
+        let configuration = UIImage.SymbolConfiguration(pointSize: 32)
+        let gearshapeImage = UIImage(systemName: "gearshape", withConfiguration: configuration)?.withTintColor(UIColor(red: 0.792, green: 0.792, blue: 0.792, alpha: 1), renderingMode: .alwaysOriginal)
+        
+        // Autolayout
+        settingsButton.setImage(gearshapeImage, for: .normal)
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        settingsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+
     override func viewDidLoad() {
+        view.addSubview(settingsButton)
+        customizeSettingsButton()
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .black
     }
 }
 

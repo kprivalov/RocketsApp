@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
-        window?.backgroundColor = .red
+        window?.backgroundColor = .black
         window?.rootViewController = UINavigationController(rootViewController: RocketScreenViewController())
     }
 
