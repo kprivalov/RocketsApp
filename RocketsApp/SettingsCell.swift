@@ -60,7 +60,6 @@ final class SettingsItemCell: UITableViewCell {
             settingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28),
             settingLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
-        
     }
 }
 

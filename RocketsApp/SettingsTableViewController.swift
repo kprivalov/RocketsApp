@@ -48,10 +48,6 @@ final class SettingsTableViewController: UITableViewController {
         dismissButton.setTitleTextAttributes(attributes, for: .normal)
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
-    
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
         model.settingsArray.count

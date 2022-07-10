@@ -8,6 +8,13 @@
 import Foundation
 
 struct SettingsModel {
+    struct Setting {
+        let type: Settings
+        let name: String
+        let units: [String]
+        let defaultValue: String?
+    }
+    
     enum Unit {
         case length
         case mass
@@ -40,11 +47,11 @@ struct SettingsModel {
     
     var settingsArray: [Setting] {
         var settings = [Setting]()
-        Settings.allCases.forEach { item in
-            settings.append(Setting(type: item,
-                                    name: item.setting.name,
-                                    units: item.setting.segments,
-                                    defaultValue: item.setting.defaultValue))
+        settings = Settings.allCases.map { item in
+            Setting(type: item,
+                    name: item.setting.name,
+                    units: item.setting.segments,
+                    defaultValue: item.setting.defaultValue)
         }
         return settings
     }
@@ -60,12 +67,5 @@ struct SettingsModel {
         case .payload:
             UserDefaultsManager.shared.payloadUnit = value
         }
-    }
-    
-    struct Setting {
-        let type: Settings
-        let name: String
-        let units: [String]
-        let defaultValue: String?
     }
 }
