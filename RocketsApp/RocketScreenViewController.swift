@@ -10,20 +10,26 @@ import UIKit
 
 // MARK: - ViewControllers
 
-class FirstViewController: UIViewController {
-    lazy var settingsButton = UIButton()
+final class FirstViewController: UIViewController {
+    private var settingsButton = UIButton()
+    
+    override func viewDidLoad() {
+        view.addSubview(settingsButton)
+        customizeSettingsButton()
+        super.viewDidLoad()
+        view.backgroundColor = .black
+    }
     
     private func goToSettingsScreen() {
-        let settings = SettingsTableView()
+        let settings = SettingsTableViewController()
         let nav = NavigationController(rootViewController: settings)
-        nav.modalPresentationStyle = .automatic
         present(nav, animated: true)
     }
     
-    func customizeSettingsButton() {
-        settingsButton.addAction(UIAction(title: "Click Me", handler: { [weak self] _ in
+    private func customizeSettingsButton() {
+        settingsButton.addAction(UIAction(title: "Settings button", handler: { [weak self] _ in
             self?.goToSettingsScreen()
-        }), for: .allEvents)
+        }), for: .allTouchEvents)
         
         let configuration = UIImage.SymbolConfiguration(pointSize: 32)
         let gearshapeImage = UIImage(systemName: "gearshape", withConfiguration: configuration)?.withTintColor(UIColor(red: 0.792, green: 0.792, blue: 0.792, alpha: 1), renderingMode: .alwaysOriginal)
@@ -34,17 +40,9 @@ class FirstViewController: UIViewController {
         settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         settingsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
-    
-
-    override func viewDidLoad() {
-        view.addSubview(settingsButton)
-        customizeSettingsButton()
-        super.viewDidLoad()
-        view.backgroundColor = .black
-    }
 }
 
-class SecondViewController: UIViewController {
+final class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
@@ -53,13 +51,13 @@ class SecondViewController: UIViewController {
 
 // MARK: - RocketScreenViewController
 
-class RocketScreenViewController: UIPageViewController {
-    var firstRocketController = FirstViewController()
-    var secondRocketController = SecondViewController()
+final class RocketScreenViewController: UIPageViewController {
+    private var firstRocketController = FirstViewController()
+    private var secondRocketController = SecondViewController()
     
-    var controllers = [UIViewController]()
+    private var controllers = [UIViewController]()
 
-    var currentVC: UIViewController {
+    private var currentVC: UIViewController {
         didSet {}
     }
     

@@ -10,14 +10,13 @@ import UIKit
 
 // MARK: - SettingsTableView
 
-class SettingsTableView: UITableViewController {
-    lazy var dismissButton = UIBarButtonItem(title: "Закрыть",
-                                             image: nil,
-                                             primaryAction: UIAction(handler: { [weak self] _ in
-                                                self?.dismiss(animated: true) }),
-                                             menu: nil)
-    lazy var navTitle = UILabel()
-    var model = SettingsModel()
+final class SettingsTableViewController: UITableViewController {
+    private lazy var dismissButton = UIBarButtonItem(title: "Закрыть",
+                                                     primaryAction: UIAction { [weak self] _ in
+        self?.dismiss(animated: true)
+    })
+    private var navTitle = UILabel()
+    private var model = SettingsModel()
     
     override init(style: UITableView.Style = .plain) {
         super.init(style: style)
@@ -28,7 +27,6 @@ class SettingsTableView: UITableViewController {
     }
     
     override func viewDidLoad() {
-        self.modalPresentationStyle = .automatic
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         let inset = UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0)
         self.tableView.contentInset = inset

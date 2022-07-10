@@ -7,13 +7,28 @@
 
 import UIKit
 
-// MARK: - SettingsItemCell
+final class SettingsItemCell: UITableViewCell {
+    private var settingLabel = UILabel()
+    private var control = UISegmentedControl()
+    private var settingType: SettingsModel.Settings?
+    private let model = SettingsModel()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: "SettingsCell")
+        self.backgroundColor = SettingsTableViewController().view.backgroundColor
+        self.customizeControl()
+        self.customizeSettingsLabel()
+        contentView.addSubview(settingLabel)
+        contentView.addSubview(control)
+        self.setConstraints()
+        self.control.addAction(UIAction { _ in
+            self.saveSetting()
+        }, for: .valueChanged)
+    }
 
-class SettingsItemCell: UITableViewCell {
-    lazy var settingLabel = UILabel()
-    lazy var control = UISegmentedControl()
-    var settingType: SettingsModel.Settings?
-    let model = SettingsModel()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func customizeSettingsLabel() {
         settingLabel.textColor = .white
@@ -46,23 +61,6 @@ class SettingsItemCell: UITableViewCell {
             settingLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
         
-    }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .default, reuseIdentifier: "SettingsCell")
-        self.backgroundColor = SettingsTableView().view.backgroundColor
-        self.customizeControl()
-        self.customizeSettingsLabel()
-        contentView.addSubview(settingLabel)
-        contentView.addSubview(control)
-        self.setConstraints()
-        self.control.addAction(UIAction { _ in
-            self.saveSetting()
-        }, for: .valueChanged)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
