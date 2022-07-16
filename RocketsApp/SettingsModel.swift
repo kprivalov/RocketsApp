@@ -35,37 +35,13 @@ struct SettingsModel {
         case mass
         case payload
         
-        var setting: (name: String, segments: [String], defaultValue: String?) {
+        var setting: (name: String, segments: [String]) {
             switch self {
-            case .height: return ("Высота", Unit.length.units, UserDefaultsManager.shared.heightUnit)
-            case .diameter: return ("Диаметр", Unit.length.units, UserDefaultsManager.shared.diameterUnit)
-            case .mass: return ("Масса", Unit.mass.units, UserDefaultsManager.shared.massUnit)
-            case .payload: return ("Полезная нагрузка", Unit.mass.units, UserDefaultsManager.shared.payloadUnit)
+            case .height: return ("Высота", Unit.length.units)
+            case .diameter: return ("Диаметр", Unit.length.units)
+            case .mass: return ("Масса", Unit.mass.units)
+            case .payload: return ("Полезная нагрузка", Unit.mass.units)
             }
-        }
-    }
-    
-    var settingsArray: [Setting] {
-        var settings = [Setting]()
-        settings = Settings.allCases.map { item in
-            Setting(type: item,
-                    name: item.setting.name,
-                    units: item.setting.segments,
-                    defaultValue: item.setting.defaultValue)
-        }
-        return settings
-    }
-    
-    func setSettingsValue(field: Settings, value: String) {
-        switch field {
-        case .height:
-            UserDefaultsManager.shared.heightUnit = value
-        case .diameter:
-            UserDefaultsManager.shared.diameterUnit = value
-        case .mass:
-            UserDefaultsManager.shared.massUnit = value
-        case .payload:
-            UserDefaultsManager.shared.payloadUnit = value
         }
     }
 }

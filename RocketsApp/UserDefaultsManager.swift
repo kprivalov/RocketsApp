@@ -7,7 +7,14 @@
 
 import Foundation
 
-class UserDefaultsManager {
+protocol StorageManager {
+    var heightUnit: String? { get set }
+    var diameterUnit: String? { get set }
+    var massUnit: String? { get set }
+    var payloadUnit: String? { get set }
+}
+
+final class UserDefaultsManager: StorageManager {
     enum UserDefaultsKeys: String {
         case height
         case diameter
@@ -15,46 +22,41 @@ class UserDefaultsManager {
         case payload
     }
     
+    @propertyWrapper
+    struct UserDefault {
+        let key: UserDefaultsKeys
+        var container: UserDefaults = .standard
+
+        var wrappedValue: String? {
+            get {
+                return container.object(forKey: key.rawValue) as? String
+            }
+            set {
+                container.set(newValue, forKey: key.rawValue)
+            }
+        }
+    }
+    
     let defaults = UserDefaults.standard
+    
     static let shared = UserDefaultsManager()
     
     init() {
-        defaults.register(defaults: [UserDefaultsKeys.height.rawValue: "ft",
-                                     UserDefaultsKeys.diameter.rawValue: "ft",
-                                     UserDefaultsKeys.mass.rawValue: "kg",
-                                     UserDefaultsKeys.payload.rawValue: "lb"])
+        UserDefaults.standard.register(defaults: [UserDefaultsKeys.height.rawValue: "ft",
+                                                  UserDefaultsKeys.diameter.rawValue: "ft",
+                                                  UserDefaultsKeys.mass.rawValue: "kg",
+                                                  UserDefaultsKeys.payload.rawValue: "lb"])
     }
 
-    var heightUnit: String? {
-        get {
-            defaults.object(forKey: UserDefaultsKeys.height.rawValue) as? String
-        } set {
-            defaults.set(newValue, forKey: UserDefaultsKeys.height.rawValue)
-        }
-    }
+    @UserDefault(key: .height)
+    var heightUnit: String?
     
-    var diameterUnit: String? {
-        get {
-            defaults.object(forKey: UserDefaultsKeys.diameter.rawValue) as? String
-        } set {
-            defaults.set(newValue, forKey: UserDefaultsKeys.diameter.rawValue)
-        }
-    }
+    @UserDefault(key: .diameter)
+    var diameterUnit: String?
     
-    var massUnit: String? {
-        get {
-            defaults.object(forKey: UserDefaultsKeys.mass.rawValue) as? String
-        } set {
-            defaults.set(newValue, forKey: UserDefaultsKeys.mass.rawValue)
-        }
-    }
+    @UserDefault(key: .mass)
+    var massUnit: String?
     
-    var payloadUnit: String? {
-        get {
-            defaults.object(forKey: UserDefaultsKeys.payload.rawValue) as? String
-        } set {
-            defaults.set(newValue, forKey: UserDefaultsKeys.payload.rawValue)
-        }
-    }
+    @UserDefault(key: .payload)
+    var payloadUnit: String?
 }
-

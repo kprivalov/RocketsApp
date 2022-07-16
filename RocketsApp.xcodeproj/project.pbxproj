@@ -25,6 +25,7 @@
 		4343A3BB28776BE50069B53C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343A3BA28776BE50069B53C /* SettingsTableViewController.swift */; };
 		4343A3BD287773960069B53C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343A3BC287773960069B53C /* UserDefaultsManager.swift */; };
 		4343A3BF287854A80069B53C /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343A3BE287854A80069B53C /* SettingsModel.swift */; };
+		43D88DD5287CA17A007C3A4E /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D88DD4287CA17A007C3A4E /* SettingsPresenter.swift */; };
 		78592A588D2468C71BD1A461 /* Pods_RocketsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0C3409A56024E5BF155B1A /* Pods_RocketsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		4343A3BA28776BE50069B53C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4343A3BC287773960069B53C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		4343A3BE287854A80069B53C /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		43D88DD4287CA17A007C3A4E /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		8F0C3409A56024E5BF155B1A /* Pods_RocketsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RocketsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB5A38601361B7F9FA0CB7D /* Pods-RocketsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketsApp.release.xcconfig"; path = "Target Support Files/Pods-RocketsApp/Pods-RocketsApp.release.xcconfig"; sourceTree = "<group>"; };
 		D9440333F10C27621B3BEF67 /* Pods-RocketsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketsApp.debug.xcconfig"; path = "Target Support Files/Pods-RocketsApp/Pods-RocketsApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				4343A3BE287854A80069B53C /* SettingsModel.swift */,
 				4343A3BA28776BE50069B53C /* SettingsTableViewController.swift */,
 				4343A3BC287773960069B53C /* UserDefaultsManager.swift */,
+				43D88DD4287CA17A007C3A4E /* SettingsPresenter.swift */,
 			);
 			path = RocketsApp;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				4343A3BB28776BE50069B53C /* SettingsTableViewController.swift in Sources */,
 				4343A3B928776BB80069B53C /* SettingsCell.swift in Sources */,
 				4343A3BF287854A80069B53C /* SettingsModel.swift in Sources */,
+				43D88DD5287CA17A007C3A4E /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

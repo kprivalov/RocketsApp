@@ -16,51 +16,47 @@ final class SettingsTableViewController: UITableViewController {
         self?.dismiss(animated: true)
     })
     private var navTitle = UILabel()
-    private var model = SettingsModel()
-    
-    override init(style: UITableView.Style = .plain) {
-        super.init(style: style)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let presenter = SettingsPresenter()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        self.customizeTableView()
+        self.customizeNavigationItems()
+        tableView.register(SettingsItemCell.self, forCellReuseIdentifier: "SettingsCell")
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
+        presenter.settingsCount
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsItemCell
+        let setting = presenter.getSettingsTypeByIndex(indexPath.row)
+        cell.selectionStyle = .none
+        cell.backgroundColor = self.view.backgroundColor
+        cell.updateCell(type: setting.type,
+                        name: setting.name,
+                        segments: setting.units,
+                        defaultValue: setting.defaultValue)
+
+        return cell
+    }
+    
+    private func customizeTableView() {
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         let inset = UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0)
         self.tableView.contentInset = inset
         view.backgroundColor = UIColor(red: 0.071, green: 0.071, blue: 0.071, alpha: 1)
-        tableView.visibleCells.forEach {
-          $0.backgroundColor = UIColor(red: 0.071, green: 0.071, blue: 0.071, alpha: 1)
-        }
-        self.customizeNavigationItems()
-        super.viewDidLoad()
-        tableView.register(SettingsItemCell.self, forCellReuseIdentifier: "SettingsCell")
     }
     
-    func customizeNavigationItems() {
+    private func customizeNavigationItems() {
         self.navigationItem.setRightBarButton(dismissButton, animated: false)
         self.navTitle.text = "Настройки"
         self.navTitle.textColor = .white
         self.navigationItem.titleView = navTitle
         let attributes: [NSAttributedString.Key : Any] = [.font: UIFont.boldSystemFont(ofSize: 16), .foregroundColor: UIColor.white]
         dismissButton.setTitleTextAttributes(attributes, for: .normal)
-    }
-    
-    override func tableView(_ tableView: UITableView,
-                            numberOfRowsInSection section: Int) -> Int {
-        model.settingsArray.count
-    }
-    
-    override func tableView(_ tableView: UITableView,
-                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsItemCell
-        cell.selectionStyle = .none
-        cell.updateCell(type: model.settingsArray[indexPath.row].type,
-                        name: model.settingsArray[indexPath.row].name,
-                        segments: model.settingsArray[indexPath.row].units,
-                        defaultValue: model.settingsArray[indexPath.row].defaultValue)
-        return cell
     }
 }

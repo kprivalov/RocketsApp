@@ -14,9 +14,9 @@ final class FirstViewController: UIViewController {
     private var settingsButton = UIButton()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         view.addSubview(settingsButton)
         customizeSettingsButton()
-        super.viewDidLoad()
         view.backgroundColor = .black
     }
     
@@ -29,7 +29,7 @@ final class FirstViewController: UIViewController {
     private func customizeSettingsButton() {
         settingsButton.addAction(UIAction(title: "Settings button", handler: { [weak self] _ in
             self?.goToSettingsScreen()
-        }), for: .allTouchEvents)
+        }), for: .touchUpInside)
         
         let configuration = UIImage.SymbolConfiguration(pointSize: 32)
         let gearshapeImage = UIImage(systemName: "gearshape", withConfiguration: configuration)?.withTintColor(UIColor(red: 0.792, green: 0.792, blue: 0.792, alpha: 1), renderingMode: .alwaysOriginal)
@@ -61,6 +61,17 @@ final class RocketScreenViewController: UIPageViewController {
         didSet {}
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.dataSource = self
+        setViewControllers([controllers.first!], direction: .forward, animated: true)
+        currentVC = controllers.first!
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override init(transitionStyle style: UIPageViewController.TransitionStyle = .scroll,
                   navigationOrientation: UIPageViewController.NavigationOrientation = .horizontal,
                   options: [UIPageViewController.OptionsKey : Any]? = nil) {
@@ -68,17 +79,6 @@ final class RocketScreenViewController: UIPageViewController {
         controllers.append(secondRocketController)
         self.currentVC = controllers.first!
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.dataSource = self
-        setViewControllers([controllers.first!], direction: .forward, animated: true)
-        currentVC = controllers.first!
     }
 }
 
