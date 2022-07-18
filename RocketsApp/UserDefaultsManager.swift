@@ -12,9 +12,12 @@ protocol StorageManager {
     var diameterUnit: String? { get set }
     var massUnit: String? { get set }
     var payloadUnit: String? { get set }
+    var defaults: UserDefaults? { get }
 }
 
-final class UserDefaultsManager: StorageManager {
+class UserDefaultsManager: StorageManager {
+    var defaults: UserDefaults?
+
     enum UserDefaultsKeys: String {
         case height
         case diameter
@@ -25,7 +28,7 @@ final class UserDefaultsManager: StorageManager {
     @propertyWrapper
     struct UserDefault {
         let key: UserDefaultsKeys
-        var container: UserDefaults = .standard
+        var container: UserDefaults
 
         var wrappedValue: String? {
             get {
@@ -36,27 +39,24 @@ final class UserDefaultsManager: StorageManager {
             }
         }
     }
-    
-    let defaults = UserDefaults.standard
-    
-    static let shared = UserDefaultsManager()
-    
-    init() {
+        
+    init(defaults: UserDefaults = UserDefaults.standard) {
+        self.defaults = defaults
         UserDefaults.standard.register(defaults: [UserDefaultsKeys.height.rawValue: "ft",
                                                   UserDefaultsKeys.diameter.rawValue: "ft",
                                                   UserDefaultsKeys.mass.rawValue: "kg",
                                                   UserDefaultsKeys.payload.rawValue: "lb"])
     }
 
-    @UserDefault(key: .height)
+    @UserDefault(key: .height, container: UserDefaults.standard)
     var heightUnit: String?
     
-    @UserDefault(key: .diameter)
+    @UserDefault(key: .diameter, container: UserDefaults.standard)
     var diameterUnit: String?
     
-    @UserDefault(key: .mass)
+    @UserDefault(key: .mass, container: UserDefaults.standard)
     var massUnit: String?
     
-    @UserDefault(key: .payload)
+    @UserDefault(key: .payload, container: UserDefaults.standard)
     var payloadUnit: String?
 }

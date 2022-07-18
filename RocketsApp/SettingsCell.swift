@@ -7,11 +7,17 @@
 
 import UIKit
 
-final class SettingsItemCell: UITableViewCell {
+protocol SettingsCell {
+    var settingType: SettingsModel.Settings? { get }
+    var presenter: SettingsPresenterProtocol? { get }
+    func updateCell(setting: SettingsModel.Setting) -> Void
+}
+
+final class SettingsItemCell: UITableViewCell, SettingsCell {
     private var settingLabel = UILabel()
     private var control = UISegmentedControl()
-    private var settingType: SettingsModel.Settings?
-    private let presenter = SettingsPresenter()
+    var settingType: SettingsModel.Settings?
+    public var presenter: SettingsPresenterProtocol?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: "SettingsCell")
@@ -49,7 +55,7 @@ final class SettingsItemCell: UITableViewCell {
     
     private func saveSetting() {
         guard let type = settingType, let title = control.titleForSegment(at: control.selectedSegmentIndex) else { return }
-        presenter.setValueToStorage(key: type, title)
+        presenter?.setValueToStorage(key: type, title)
     }
     
     private func setConstraints() {
@@ -70,11 +76,11 @@ final class SettingsItemCell: UITableViewCell {
 // MARK: - updateCell
 
 extension SettingsItemCell {
-    func updateCell(type: SettingsModel.Settings, name: String, segments: [String], defaultValue: String?) {
-        guard let defaultValue = defaultValue, let index = segments.firstIndex(of: defaultValue) else { return }
-        self.settingLabel.text = name
-        self.settingType = type
-        for (index, element) in segments.enumerated() {
+    func updateCell(setting: SettingsModel.Setting) {
+        guard let defaultValue = setting.defaultValue, let index = setting.units.firstIndex(of: defaultValue) else { return }
+        self.settingLabel.text = setting.name
+        self.settingType = setting.type
+        for (index, element) in setting.units.enumerated() {
             self.control.insertSegment(withTitle: element, at: index, animated: true)
         }
         self.control.selectedSegmentIndex = index

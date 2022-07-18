@@ -36,10 +36,8 @@ final class SettingsTableViewController: UITableViewController {
         let setting = presenter.getSettingsTypeByIndex(indexPath.row)
         cell.selectionStyle = .none
         cell.backgroundColor = self.view.backgroundColor
-        cell.updateCell(type: setting.type,
-                        name: setting.name,
-                        segments: setting.units,
-                        defaultValue: setting.defaultValue)
+        cell.presenter = self.presenter
+        cell.updateCell(setting: setting)
 
         return cell
     }

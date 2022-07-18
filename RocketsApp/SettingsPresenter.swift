@@ -8,24 +8,36 @@
 import Foundation
 
 protocol SettingsPresenterProtocol {
+    var storage: StorageManager { get }
     var settingsCount: Int { get }
     var settingsArray: [SettingsModel.Setting] { get }
+    func valueFromStorage(key: SettingsModel.Settings) -> String?
     func getSettingsTypeByIndex(_ index: Int) -> SettingsModel.Setting
-    func setValueToStorage() -> Void
-    var valueFromStorage: String? { get }
+    func setValueToStorage(key: SettingsModel.Settings, _ value: String?) -> Void
 }
 
-class SettingsPresenter: NSObject {
+class SettingsPresenter: SettingsPresenterProtocol {
+    var storage: StorageManager = UserDefaultsManager()
+    
     var settingsCount: Int {
         return SettingsModel.Settings.allCases.count
     }
     
-    private var settingsArray: [SettingsModel.Setting] {
+    var settingsArray: [SettingsModel.Setting] {
         return SettingsModel.Settings.allCases.map { item in
             SettingsModel.Setting(type: item,
                                   name: item.setting.name,
                                   units: item.setting.segments,
-                                  defaultValue: self.valueFromStorage(item))
+                                  defaultValue: self.valueFromStorage(key: item))
+        }
+    }
+    
+    func valueFromStorage(key: SettingsModel.Settings) -> String? {
+        switch key {
+        case .height: return storage.heightUnit
+        case .diameter: return storage.diameterUnit
+        case .mass: return storage.massUnit
+        case .payload: return storage.payloadUnit
         }
     }
     
@@ -35,19 +47,10 @@ class SettingsPresenter: NSObject {
  
     func setValueToStorage(key: SettingsModel.Settings, _ value: String?) {
         switch key {
-        case .height: UserDefaultsManager.shared.heightUnit = value
-        case .diameter: UserDefaultsManager.shared.diameterUnit = value
-        case .mass: UserDefaultsManager.shared.massUnit = value
-        case .payload: UserDefaultsManager.shared.payloadUnit = value
-        }
-    }
-    
-    private var valueFromStorage: (SettingsModel.Settings) -> String? = { setting in
-        switch setting {
-        case .height: return UserDefaultsManager.shared.heightUnit
-        case .diameter: return UserDefaultsManager.shared.diameterUnit
-        case .mass: return UserDefaultsManager.shared.massUnit
-        case .payload: return UserDefaultsManager.shared.payloadUnit
+        case .height: self.storage.heightUnit = value
+        case .diameter: self.storage.diameterUnit = value
+        case .mass: self.storage.massUnit = value
+        case .payload: self.storage.payloadUnit = value
         }
     }
 }
