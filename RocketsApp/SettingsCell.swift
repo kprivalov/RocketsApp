@@ -7,17 +7,11 @@
 
 import UIKit
 
-protocol SettingsCell {
-    var settingType: SettingsModel.Settings? { get }
-    var presenter: SettingsPresenterProtocol? { get }
-    func updateCell(setting: SettingsModel.Setting) -> Void
-}
-
-final class SettingsItemCell: UITableViewCell, SettingsCell {
+final class SettingsItemCell: UITableViewCell {
     private var settingLabel = UILabel()
     private var control = UISegmentedControl()
-    var settingType: SettingsModel.Settings?
-    public var presenter: SettingsPresenterProtocol?
+    private var settingType: SettingsModel.Settings?
+    internal var onSaveSetting: ((String) -> Void)?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: "SettingsCell")
@@ -54,8 +48,8 @@ final class SettingsItemCell: UITableViewCell, SettingsCell {
     }
     
     private func saveSetting() {
-        guard let type = settingType, let title = control.titleForSegment(at: control.selectedSegmentIndex) else { return }
-        presenter?.setValueToStorage(key: type, title)
+        guard let title = control.titleForSegment(at: control.selectedSegmentIndex) else { return }
+        onSaveSetting?(title)
     }
     
     private func setConstraints() {

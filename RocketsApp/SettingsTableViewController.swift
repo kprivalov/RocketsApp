@@ -36,7 +36,9 @@ final class SettingsTableViewController: UITableViewController {
         let setting = presenter.getSettingsTypeByIndex(indexPath.row)
         cell.selectionStyle = .none
         cell.backgroundColor = self.view.backgroundColor
-        cell.presenter = self.presenter
+        cell.onSaveSetting = { [unowned self] value in
+            self.presenter.setValueToStorage(key: setting.type, value)
+        }
         cell.updateCell(setting: setting)
 
         return cell
